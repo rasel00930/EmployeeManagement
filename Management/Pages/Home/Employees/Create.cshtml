@@ -1,0 +1,88 @@
+﻿@page
+@model Management.Pages.Home.Employees.CreateModel
+@{
+}
+<div class="row">
+    <div class="col-md-8 mx-auto rounded border p-3">
+        <h2 class="text-center mb-5">New Employee</h2>
+
+        @if (Model.errorMessage.Length > 0)
+        {
+            <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+                <strong>@Model.errorMessage</strong>
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+            </div>
+        }
+        else if (Model.successMessage.Length > 0)
+        {
+            <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                <strong>@Model.successMessage</strong>
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+            </div>
+        }
+
+        <form method="post" enctype="multipart/form-data">
+           
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">First Name</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="EmployeeDto.FirstName">
+                    <span asp-validation-for="EmployeeDto.FirstName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">LastName</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="EmployeeDto.LastName">
+                    <span asp-validation-for="EmployeeDto.LastName" class="text-danger"></span>
+                </div>
+            </div>
+
+           
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Email</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="EmployeeDto.Email">
+                    <span asp-validation-for="EmployeeDto.Email" class="text-danger"></span>
+                </div>
+            </div>
+
+           
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Mobile</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="EmployeeDto.Mobile">
+                    <span asp-validation-for="EmployeeDto.Mobile" class="text-danger"></span>
+                </div>
+            </div>
+
+            
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Date of Birth</label>
+                <div class="col-sm-8">
+                    <input type="date" class="form-control" asp-for="EmployeeDto.DateOfBirth">
+                    <span asp-validation-for="EmployeeDto.DateOfBirth" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Photo</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="file" asp-for="EmployeeDto.Photo">
+                    <span asp-validation-for="EmployeeDto.Photo" class="text-danger"></span>
+                </div>
+            </div>
+
+           
+            <div class="row mb-3">
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="col-sm-4 d-grid">
+                    <a class="btn btn-outline-primary" href="/Admin/Employees/Index" role="button">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
